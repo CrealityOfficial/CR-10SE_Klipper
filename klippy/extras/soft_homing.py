@@ -15,7 +15,7 @@ class SoftHomingInit:
         self.diff_step = config.getint('diff_step', default=2, minval=1, maxval=10)
         self.home_cnt_max = config.getint('home_cnt_max', default=15, minval=5, maxval=30)
         self.home_mode = config.getint('home_mode', default=0, minval=0, maxval=1)
-        self.check_home_falg = 0
+        self.check_home_flag = 0
    
 
     def ck_and_raise_error(self, err_code, vals=[]): 
@@ -32,8 +32,8 @@ class SoftHomingInit:
         gcode.respond_info(str(err_code))
         pass
     def cmd_SOFTX_G28_CHECK_ERROR(self, gcmd):
-        self.check_home_falg = gcmd.get_int('FLAG', 0)
-        gcmd.respond_info('self.check_home_falg:%d\n' %(self.check_home_falg))
+        self.check_home_flag = gcmd.get_int('FLAG', 0)
+        gcmd.respond_info('self.check_home_flag:%d\n' %(self.check_home_flag))
         pass
     def cmd_SOFT_G28_X(self, gcmd):
         toolhead = self.printer.lookup_object('toolhead', None)
@@ -63,9 +63,9 @@ class SoftHomingInit:
         # else :
         #     check_flag = False
         check_flag = False
-        if self.check_home_falg == 1:
+        if self.check_home_flag == 1:
             check_flag = False
-        if self.check_home_falg == 2:
+        if self.check_home_flag == 2:
             check_flag = True
         gcmd.respond_info('check_flag = %d' %(check_flag))
         while(1):
@@ -127,9 +127,9 @@ class SoftHomingInit:
             check_flag = True
         else :
             check_flag = False
-        if self.check_home_falg == 1:
+        if self.check_home_flag == 1:
             check_flag = False
-        if self.check_home_falg == 2:
+        if self.check_home_flag == 2:
             check_flag = True
         gcmd.respond_info('check_flag = %d' %(check_flag))
         while(1):
