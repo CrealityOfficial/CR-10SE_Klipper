@@ -112,9 +112,9 @@ config CANBUS_FILTER
 choice
     prompt "Creality machine type"
     config MACH_CREALITY_OTHERS
-        bool "CRELITY others"
+        bool "CREALITY others"
     config MACH_CREALITY_CR_10_SMART
-        bool "CRELITY CR-10 SMART"
+        bool "CREALITY CR-10 SMART"
     config INITIAL_PINS
 	    depends on MACH_CREALITY_CR_10_SMART
         string 

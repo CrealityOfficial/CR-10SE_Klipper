@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-c -Wall -ggdb
-LDFALGS=
+LDFLAGS=
 SOURCES=main.c picoboot_connection.c
 OBJECTS=$(SOURCES:.c=.o)
 LIBS=`pkg-config libusb-1.0 --libs`
